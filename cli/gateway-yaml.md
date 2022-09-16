@@ -63,14 +63,14 @@ forwards:
 bindings:
   - service: backend
     ports:
-      - servicePort: 8080
+      - port: 8080
 forwards:
   - service: frontend
     ports:
-      - servicePort: 8080
-        gatewayPort: 9090
-      - servicePort: 8081
-        gatewayPort: 9091
+      - port: 9090
+        sourcePort: 8080
+      - port: 9091
+        sourcePort: 8081
 ~~~
 
 ## Proposed YAML with defaults
@@ -78,19 +78,19 @@ forwards:
 ~~~ yaml
 bindings:
   - service: backend
-    hosts:
-      - localhost
     ports:
-      - servicePort: 8080
+      - port: 8080
+        targetHost: localhost
+        targetPort: 8080
 forwards:
   - service: frontend
-    hosts:
-      - localhost
     ports:
-      - servicePort: 8080
-        gatewayPort: 9090
-      - servicePort: 8081
-        gatewayPort: 9091
+      - port: 9090
+        sourceHost: localhost
+        sourcePort: 8080
+      - port: 9091
+        sourcehost: localhost
+        sourcePort: 8081
 ~~~
 
 ## Proposed YAML schema
@@ -102,10 +102,15 @@ forwards: <list of bindings> (optional)
 
 <binding>:
   service: <string> (required)
-  hosts: <list of string hosts> (optional)
   ports: <list of port mappings> (optional)
 
-<port mapping>:
-  servicePort: <port> (required)
-  gatewayPort: <port> (optional)
+<binding port mapping>:
+  port: <service port> (required)
+  targetHost: <string> (optional)
+  targetPort: <string or int> (optional)
+
+<forward port mapping>:
+  port: <service port> (required)
+  soruceHost: <string> (optional)
+  sourcePort: <string or int> (optional)
 ~~~

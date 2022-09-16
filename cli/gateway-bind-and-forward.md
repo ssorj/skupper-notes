@@ -5,7 +5,7 @@ This applies the [port option pattern](ports.md).
 ## Proposed bind interface and help
 
 ~~~
-skupper gateway bind <service-name> [--host <host>] [--port [<gateway-port>:]<service-port>]]
+skupper gateway bind <service-name> [--host <host>] [--port [<target-port>:]<service-port>]]
 
 # Route traffic from service backend port 8080 to localhost:9090.
 skupper gateway bind backend --port 9090:8080
@@ -24,7 +24,7 @@ skupper gateway bind backend --host othernet
 ## Proposed forward interface and help
 
 ~~~
-skupper gateway forward <service-name> [--host <interface>] [--port [<gateway-port>:]<service-port>]]
+skupper gateway forward <service-name> [--host <interface>] [--port [<source-port>:]<service-port>]]
 
 # Listen on localhost:9091.  Forward traffic to service frontend, port 8080.
 skupper gateway forward frontend --port 9091:8080
@@ -42,7 +42,7 @@ skupper gateway forward frontend
 The port is required in this instance, but host is still optional.
 
 ~~~
-skupper gateway expose <service-name> [<gateway-port>:]<service-port>... [--host <host>]
+skupper gateway expose <service-name> [<target-port>:]<service-port>... [--host <host>]
 
 # Route traffic from service backend port 8080 to localhost:9090.
 skupper gateway expose backend 9090:8080
