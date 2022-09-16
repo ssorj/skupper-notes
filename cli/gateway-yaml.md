@@ -80,16 +80,13 @@ bindings:
   - service: backend
     ports:
       - port: 8080
-        targetHost: localhost
         targetPort: 8080
 forwards:
   - service: frontend
     ports:
       - port: 9090
-        sourceHost: localhost
         sourcePort: 8080
       - port: 9091
-        sourcehost: localhost
         sourcePort: 8081
 ~~~
 
@@ -102,15 +99,33 @@ forwards: <list of bindings> (optional)
 
 <binding>:
   service: <string> (required)
-  ports: <list of port mappings> (optional)
+  host: <string> (optional, default is localhost)
+  ports: <list of port mappings> (optional, default is all service ports)
 
 <binding port mapping>:
-  port: <service port> (required)
-  targetHost: <string> (optional)
-  targetPort: <string or int> (optional)
+  port: <string or int> (the service port, required)
+  targetPort: <string or int> (optional, default is the service port)
 
 <forward port mapping>:
-  port: <service port> (required)
-  soruceHost: <string> (optional)
-  sourcePort: <string or int> (optional)
+  port: <string or int> (the service port, required)
+  sourcePort: <string or int> (optional, default is the service port)
+~~~
+
+## The host-only scenario
+
+Suppose the database service has ports 5432 and 8080.
+
+Bind all database service ports to localhost:
+
+~~~ yaml
+bindings:
+  - service: database
+~~~
+
+Bind all database service ports to 10.0.0.100:
+
+~~~ yaml
+bindings:
+  - service: database
+    host: 10.0.0.100
 ~~~
