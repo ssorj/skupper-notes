@@ -78,11 +78,13 @@ forwards:
 ~~~ yaml
 bindings:
   - service: backend
+    host: localhost
     ports:
       - port: 8080
         targetPort: 8080
 forwards:
   - service: frontend
+    host: localhost
     ports:
       - port: 9090
         sourcePort: 8080
