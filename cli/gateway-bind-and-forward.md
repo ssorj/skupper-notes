@@ -39,7 +39,7 @@ skupper gateway forward frontend
 
 ## Proposed export interface and help
 
-Port is required in this instance, but host is still optional:
+The port is required in this instance, but host is still optional.
 
 ~~~
 skupper gateway expose <service-name> [<local-port>:]<service-port>... [--host <local-address>]
