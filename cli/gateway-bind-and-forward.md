@@ -32,7 +32,7 @@ skupper gateway forward frontend --port 9091:8080
 # Listen on othernet:9091.  Forward traffic to service frontend, port 8080.
 skupper gateway forward frontend --host othernet --port 9091:8080
 
-# Listen on localhost:8080 and localhost:8081.  Forward traffic to the frontend service, ports 8080 an 8081.
+# Listen on localhost:8080 and localhost:8081.  Forward traffic to the frontend service, ports 8080 and 8081.
 skupper service create frontend 8080 8081
 skupper gateway forward frontend
 ~~~
