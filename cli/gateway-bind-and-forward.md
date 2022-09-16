@@ -1,3 +1,9 @@
+# Gateway bind and forward
+
+This applies the [port option pattern](ports.md).
+
+## Proposed bind interface and help
+
 ~~~
 skupper gateway bind <service-name> [--host <local-address>] [--port [<local-port>:]<service-port>]]
 
@@ -15,6 +21,8 @@ skupper gateway bind backend --port 8080
 skupper gateway bind backend --host othernet
 ~~~
 
+## Proposed forward interface and help
+
 ~~~
 skupper gateway forward <service-name> [--host <local-address>] [--port [<local-port>:]<service-port>]]
 
@@ -28,6 +36,8 @@ skupper gateway forward frontend --host othernet --port 9091:8080
 skupper service create frontend 8080 8081
 skupper gateway forward frontend
 ~~~
+
+## Proposed export interface and help
 
 Port is required in this instance, but host is still optional:
 
