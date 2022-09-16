@@ -1,17 +1,17 @@
 ~~~
 skupper gateway bind <service-name> [--host <local-address>] [--port [<local-port>:]<service-port>]]
 
-# Route traffic from service backend's port 8080 to localhost:9090.
+# Route traffic from service backend port 8080 to localhost:9090.
 skupper gateway bind backend --port 9090:8080
 
 # Route traffic from service backend ports 8080 and 8081 to localhost:8080 and localhost:8081.
 skupper service create backend 8080 8081
 skupper gateway bind backend
 
-# Route traffic from service backend's port 8080 to localhost:8080
+# Route traffic from service backend port 8080 to localhost:8080
 skupper gateway bind backend --port 8080
 
-# Route traffic from service backend's ports to corresponding ports on local interface othernet
+# Route traffic from service backend ports to corresponding ports on local interface othernet
 skupper gateway bind backend --host othernet
 ~~~
 
