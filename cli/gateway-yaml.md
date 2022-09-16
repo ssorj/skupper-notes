@@ -98,7 +98,7 @@ forwards:
 ~~~ yaml
 bindings: <list of bindings> (optional)
 
-forwards: <lsit of bindings> (optional)
+forwards: <list of bindings> (optional)
 
 <binding>:
   service: <string> (required)
