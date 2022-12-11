@@ -1,0 +1,29 @@
+= Kubernetes resource annotations
+
+== Current state
+
+skupper.io/address::
+
+The Kubernetes service name.  Can be applied to Deployment,
+StatefulSet, DaemonSet, and Service resources.
+
+skupper.io/port::
+
+The service port.  Can be applied to Deployment, StatefulSet, and
+DaemonSet resources.
+
+skupper.io/proxy::
+
+The proxy protocol to use inside Skupper
+
+== Changes we need to consider making
+
+* Rename address to service-name
+* Change port to ports
+* Proxy to protocol?
+
+== Other stuff
+
+* What about site linking?
+* The annotations example and where it should go
+* Look at the mongo example, which is also declarative
