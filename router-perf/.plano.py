@@ -1,0 +1,10 @@
+from plano import *
+
+@command
+def build():
+    check_program("asciidoctor")
+    run("asciidoctor annotations.adoc -o annotations.html --safe-mode safe --verbose")
+
+@command
+def clean():
+    remove("annotations.html")
