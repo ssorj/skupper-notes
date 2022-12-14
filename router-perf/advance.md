@@ -94,6 +94,36 @@ static bool advance(unsigned char **cursor, qd_buffer_t **buffer, int consume)
   459c22:	   \-------- eb cc                	jmp    459bf0 <advance+0x50>
 ~~~
 
+### Profile
+
+~~~
+Samples: 30K of event 'cpu_core/cycles/', Event count (approx.): 126019144859
+  Overhead  Command       Shared Object                     Symbol
++    3.30%  wrkr_0        [kernel.kallsyms]                 [k] copy_user_enhan
++    3.22%  client        [kernel.kallsyms]                 [k] copy_user_enhan
++    3.17%  wrkr_2        [kernel.kallsyms]                 [k] copy_user_enhan
++    3.17%  server        [kernel.kallsyms]                 [k] copy_user_enhan
++    3.11%  wrkr_1        [kernel.kallsyms]                 [k] copy_user_enhan
++    2.90%  wrkr_3        [kernel.kallsyms]                 [k] copy_user_enhan
++    2.63%  wrkr_2        libc.so.6                         [.] __memmove_avx_u
++    2.59%  wrkr_3        libc.so.6                         [.] __memmove_avx_u
++    2.52%  wrkr_1        libc.so.6                         [.] __memmove_avx_u
++    2.50%  wrkr_0        libc.so.6                         [.] __memmove_avx_u
++    1.41%  wrkr_0        libc.so.6                         [.] pthread_mutex_l
++    1.34%  wrkr_2        libc.so.6                         [.] pthread_mutex_l
++    1.29%  wrkr_1        libc.so.6                         [.] pthread_mutex_l
++    1.23%  wrkr_3        libc.so.6                         [.] pthread_mutex_l
++    0.89%  wrkr_3        skrouterd                         [.] advance
++    0.83%  wrkr_1        skrouterd                         [.] advance
++    0.81%  wrkr_2        skrouterd                         [.] advance
++    0.80%  wrkr_0        skrouterd                         [.] advance
++    0.63%  wrkr_0        [nf_tables]                       [k] nft_do_chain
++    0.60%  wrkr_1        [nf_tables]                       [k] nft_do_chain
++    0.58%  wrkr_3        [nf_tables]                       [k] nft_do_chain
++    0.52%  wrkr_2        [nf_tables]                       [k] nft_do_chain
++    0.51%  wrkr_0        [kernel.kallsyms]                 [k] tcp_sendmsg_loc
+~~~
+
 ## Proposed code
 
 ~~~ c
@@ -163,6 +193,40 @@ Things to note:
   4596b6:	|            4c 89 07             	mov    QWORD PTR [rdi],r8
   4596b9:	\----------> b8 01 00 00 00       	mov    eax,0x1
   4596be:	             c3                   	ret
+~~~
+
+### Profile
+
+`advance()` disappears because the compiler inlines the now simpler
+implementation into `message_section_check_LH()`.
+
+~~~
+Samples: 31K of event 'cpu_core/cycles/', Event count (approx.): 127843274818
+  Overhead  Command       Shared Object                     Symbol
++    3.21%  server        [kernel.kallsyms]                 [k] copy_user_enha◆
++    3.17%  wrkr_3        [kernel.kallsyms]                 [k] copy_user_enha▒
++    3.10%  client        [kernel.kallsyms]                 [k] copy_user_enha▒
++    3.09%  wrkr_1        [kernel.kallsyms]                 [k] copy_user_enha▒
++    3.06%  wrkr_2        [kernel.kallsyms]                 [k] copy_user_enha▒
++    2.97%  wrkr_0        [kernel.kallsyms]                 [k] copy_user_enha▒
++    2.43%  wrkr_1        libc.so.6                         [.] __memmove_avx_▒
++    2.43%  wrkr_0        libc.so.6                         [.] __memmove_avx_▒
++    2.40%  wrkr_3        libc.so.6                         [.] __memmove_avx_▒
++    2.31%  wrkr_2        libc.so.6                         [.] __memmove_avx_▒
++    1.37%  wrkr_2        libc.so.6                         [.] pthread_mutex_▒
++    1.37%  wrkr_1        libc.so.6                         [.] pthread_mutex_▒
++    1.36%  wrkr_3        libc.so.6                         [.] pthread_mutex_▒
++    1.30%  wrkr_0        libc.so.6                         [.] pthread_mutex_▒
++    0.89%  wrkr_0        skrouterd                         [.] message_sectio▒
++    0.87%  wrkr_1        skrouterd                         [.] message_sectio▒
++    0.81%  wrkr_2        skrouterd                         [.] message_sectio▒
++    0.79%  wrkr_3        skrouterd                         [.] message_sectio▒
++    0.64%  wrkr_3        [nf_tables]                       [k] nft_do_chain  ▒
++    0.59%  wrkr_0        [nf_tables]                       [k] nft_do_chain  ▒
++    0.58%  wrkr_1        [nf_tables]                       [k] nft_do_chain  ▒
++    0.57%  wrkr_3        [kernel.kallsyms]                 [k] tcp_sendmsg_lo▒
++    0.55%  wrkr_1        [kernel.kallsyms]                 [k] tcp_sendmsg_lo▒
++    0.54%  wrkr_2        [nf_tables]                       [k] nft_do_chain  ▒
 ~~~
 
 ## Related
