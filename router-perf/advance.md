@@ -239,3 +239,22 @@ Note in passing: `advance_guarded()` has this:
 ~~~
 
 Is that a bug?  Should that be `<=`?
+
+A new `next_octet()` impl:
+
+~~~ c
+static inline bool next_octet(unsigned char **cursor, qd_buffer_t **buffer, unsigned char *octet)
+{
+    if (qd_buffer_cursor(*buffer) > *cursor) {
+        *octet = **cursor;
+    } else if (DEQ_NEXT(*buffer)) {
+        *octet = *qd_buffer_base(DEQ_NEXT(*buffer));
+    } else {
+        return false;
+    }
+
+    advance(cursor, buffer, 1);
+
+    return true;
+}
+~~~

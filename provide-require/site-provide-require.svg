@@ -1,0 +1,194 @@
+<svg version="1.1" baseProfile="full" width="451.0" height="486.0" viewbox="0 0 451 486" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<desc >[network]
+	[site|name]
+	[required service|name]
+	[required service port|name|port|router address|source process group*]
+	[provided service|name]
+	[provided service port|name|port|router address|target process group]
+	
+	[network] - n [site]
+	[site] - n [required service]
+	[site] - n [provided service]
+	[required service] - n [required service port]
+	[provided service] - n [provided service port]
+	
+	// west.conf (site-specific):
+	//
+	//   site &quot;west&quot; {
+	//       provides service &quot;frontend:8080&quot; implemented by \
+	//           process group &quot;deployment/frontend&quot;
+	//       requires service &quot;database:5432&quot; used by \
+	//           process group &quot;deployment/frontend&quot;
+	//   }
+	//
+	// east.conf (site-specific):
+	//
+	//   site &quot;east&quot; {
+	//       provides service &quot;database:5432&quot; implemented by \
+	//           process group &quot;deployment/postgresql&quot;
+	//   }</desc>
+	<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="bold" font-style="normal">
+		<g transform="translate(0.5, 0.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+			<g stroke="transparent" fill="transparent">
+				<rect x="0.0" y="0.0" height="486.0" width="451.0" stroke="none"></rect>
+			</g>
+			<g transform="translate(8, 8)" fill="#33322E">
+				<g transform="translate(20, 20)" fill="#33322E" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+					<text x="179.0" y="63.0" stroke="none">n</text>
+					<path d="M196.8 31.0 L196.75 51 L196.75 71 L196.8 71.0 " fill="none"></path>
+					<text x="70.2" y="165.0" stroke="none">n</text>
+					<path d="M168.8 115.1 L88 153 L88 173 L88.0 173.0 " fill="none"></path>
+					<text x="313.5" y="165.0" stroke="none">n</text>
+					<path d="M224.8 115.1 L305.5 153 L305.5 173 L305.5 173.0 " fill="none"></path>
+					<text x="70.2" y="267.0" stroke="none">n</text>
+					<path d="M88.0 235.0 L88 255 L88 275 L88.0 275.0 " fill="none"></path>
+					<text x="287.7" y="267.0" stroke="none">n</text>
+					<path d="M305.5 235.0 L305.5 255 L305.5 275 L305.5 275.0 " fill="none"></path>
+					<g data-name="required service port">
+						<g fill="#eee8d5" stroke="#33322E" data-name="required service port">
+							<rect x="0.0" y="275.0" height="155.0" width="176.0" data-name="required service port"></rect>
+							<path d="M0.0 306.0 L176.0 306.0" fill="none" data-name="required service port"></path>
+							<path d="M0.0 337.0 L176.0 337.0" fill="none" data-name="required service port"></path>
+							<path d="M0.0 368.0 L176.0 368.0" fill="none" data-name="required service port"></path>
+							<path d="M0.0 399.0 L176.0 399.0" fill="none" data-name="required service port"></path>
+						</g>
+						<g transform="translate(0, 275)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="required service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="required service port">
+								<text x="80.0" y="13.5" stroke="none" text-anchor="middle" data-name="required service port">required service port</text>
+								
+							</g>
+						</g>
+						<g transform="translate(0, 306)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="required service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="required service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="required service port">name</text>
+								
+							</g>
+						</g>
+						<g transform="translate(0, 337)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="required service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="required service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="required service port">port</text>
+								
+							</g>
+						</g>
+						<g transform="translate(0, 368)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="required service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="required service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="required service port">router address</text>
+								
+							</g>
+						</g>
+						<g transform="translate(0, 399)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="required service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="required service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="required service port">source process group*</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="provided service port">
+						<g fill="#eee8d5" stroke="#33322E" data-name="provided service port">
+							<rect x="216.0" y="275.0" height="155.0" width="179.0" data-name="provided service port"></rect>
+							<path d="M216.0 306.0 L395.0 306.0" fill="none" data-name="provided service port"></path>
+							<path d="M216.0 337.0 L395.0 337.0" fill="none" data-name="provided service port"></path>
+							<path d="M216.0 368.0 L395.0 368.0" fill="none" data-name="provided service port"></path>
+							<path d="M216.0 399.0 L395.0 399.0" fill="none" data-name="provided service port"></path>
+						</g>
+						<g transform="translate(216, 275)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="provided service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="provided service port">
+								<text x="81.5" y="13.5" stroke="none" text-anchor="middle" data-name="provided service port">provided service port</text>
+								
+							</g>
+						</g>
+						<g transform="translate(216, 306)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="provided service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="provided service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="provided service port">name</text>
+								
+							</g>
+						</g>
+						<g transform="translate(216, 337)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="provided service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="provided service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="provided service port">port</text>
+								
+							</g>
+						</g>
+						<g transform="translate(216, 368)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="provided service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="provided service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="provided service port">router address</text>
+								
+							</g>
+						</g>
+						<g transform="translate(216, 399)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="provided service port">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="provided service port">
+								<text x="0.0" y="13.5" stroke="none" data-name="provided service port">target process group</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="site">
+						<g fill="#eee8d5" stroke="#33322E" data-name="site">
+							<rect x="169.0" y="71.0" height="62.0" width="56.0" data-name="site"></rect>
+							<path d="M169.0 102.0 L225.0 102.0" fill="none" data-name="site"></path>
+						</g>
+						<g transform="translate(169, 71)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="site">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="site">
+								<text x="20.0" y="13.5" stroke="none" text-anchor="middle" data-name="site">site</text>
+								
+							</g>
+						</g>
+						<g transform="translate(169, 102)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="site">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="site">
+								<text x="0.0" y="13.5" stroke="none" data-name="site">name</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="required service">
+						<g fill="#eee8d5" stroke="#33322E" data-name="required service">
+							<rect x="18.0" y="173.0" height="62.0" width="140.0" data-name="required service"></rect>
+							<path d="M18.0 204.0 L158.0 204.0" fill="none" data-name="required service"></path>
+						</g>
+						<g transform="translate(18, 173)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="required service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="required service">
+								<text x="62.0" y="13.5" stroke="none" text-anchor="middle" data-name="required service">required service</text>
+								
+							</g>
+						</g>
+						<g transform="translate(18, 204)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="required service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="required service">
+								<text x="0.0" y="13.5" stroke="none" data-name="required service">name</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="provided service">
+						<g fill="#eee8d5" stroke="#33322E" data-name="provided service">
+							<rect x="234.0" y="173.0" height="62.0" width="143.0" data-name="provided service"></rect>
+							<path d="M234.0 204.0 L377.0 204.0" fill="none" data-name="provided service"></path>
+						</g>
+						<g transform="translate(234, 173)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="provided service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="provided service">
+								<text x="63.5" y="13.5" stroke="none" text-anchor="middle" data-name="provided service">provided service</text>
+								
+							</g>
+						</g>
+						<g transform="translate(234, 204)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="provided service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="provided service">
+								<text x="0.0" y="13.5" stroke="none" data-name="provided service">name</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="network">
+						<g fill="#eee8d5" stroke="#33322E" data-name="network">
+							<rect x="158.0" y="0.0" height="31.0" width="77.0" data-name="network"></rect>
+						</g>
+						<g transform="translate(158, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="network">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="network">
+								<text x="30.5" y="13.5" stroke="none" text-anchor="middle" data-name="network">network</text>
+								
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
